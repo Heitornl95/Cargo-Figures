@@ -4,146 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargo Report App</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#007AFF">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Cargo Report">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #007AFF;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        .status {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .btn {
+            background: #007AFF;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🚢 Cargo Report</h1>
-            <div class="status" id="status">Ready</div>
-        </header>
-
-        <main>
-            <form id="cargoForm">
-                <div class="section">
-                    <h3>🚢 Vessel Information</h3>
-                    <div class="form-group">
-                        <label for="vesselName">Vessel Name:</label>
-                        <input type="text" id="vesselName" name="vesselName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="voyageNumber">Voyage Number:</label>
-                        <input type="text" id="voyageNumber" name="voyageNumber" required>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>⏰ Planning</h3>
-                    <div class="form-group">
-                        <label for="planningTime">Planning Time:</label>
-                        <input type="text" id="planningTime" name="planningTime" placeholder="19h" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="planningHolds">Planning Holds:</label>
-                        <input type="text" id="planningHolds" name="planningHolds" placeholder="#1, #4" required>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>🚢 Holds Data</h3>
-                    
-                    <div class="hold-row">
-                        <label>Hold #1:</label>
-                        <div class="hold-inputs">
-                            <input type="number" id="hold1Loaded" name="hold1Loaded" placeholder="Loaded" required>
-                            <span>/</span>
-                            <input type="number" id="hold1Balance" name="hold1Balance" placeholder="Balance" required>
-                        </div>
-                    </div>
-
-                    <div class="hold-row">
-                        <label>Hold #2:</label>
-                        <div class="hold-inputs">
-                            <input type="number" id="hold2Loaded" name="hold2Loaded" placeholder="Loaded" required>
-                            <span>/</span>
-                            <input type="number" id="hold2Balance" name="hold2Balance" placeholder="Balance" required>
-                        </div>
-                    </div>
-
-                    <div class="hold-row">
-                        <label>Hold #3:</label>
-                        <div class="hold-inputs">
-                            <input type="number" id="hold3Loaded" name="hold3Loaded" placeholder="Loaded" required>
-                            <span>/</span>
-                            <input type="number" id="hold3Balance" name="hold3Balance" placeholder="Balance" required>
-                        </div>
-                    </div>
-
-                    <div class="hold-row">
-                        <label>Hold #4:</label>
-                        <div class="hold-inputs">
-                            <input type="number" id="hold4Loaded" name="hold4Loaded" placeholder="Loaded" required>
-                            <span>/</span>
-                            <input type="number" id="hold4Balance" name="hold4Balance" placeholder="Balance" required>
-                        </div>
-                    </div>
-
-                    <div class="hold-row">
-                        <label>Hold #5:</label>
-                        <div class="hold-inputs">
-                            <input type="number" id="hold5Loaded" name="hold5Loaded" placeholder="Loaded" required>
-                            <span>/</span>
-                            <input type="number" id="hold5Balance" name="hold5Balance" placeholder="Balance" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3>🎯 ETC</h3>
-                    <div class="form-group">
-                        <label for="etcDate">ETC Date:</label>
-                        <input type="text" id="etcDate" name="etcDate" placeholder="28/06" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="etcTime">ETC Time:</label>
-                        <input type="text" id="etcTime" name="etcTime" placeholder="13:00h" required>
-                    </div>
-                </div>
-            </form>
-
-            <div class="summary" id="summary">
-                <h3>📊 Summary</h3>
-                <div class="summary-item">
-                    <span>Total Loaded:</span>
-                    <span id="totalLoaded">0</span>
-                </div>
-                <div class="summary-item">
-                    <span>Total Balance:</span>
-                    <span id="totalBalance">0</span>
-                </div>
-                <div class="summary-item">
-                    <span>Capacity:</span>
-                    <span id="capacity">0%</span>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <button type="button" id="loadDataBtn" class="btn btn-secondary">📥 Load Current Data</button>
-            <button type="button" id="updateDataBtn" class="btn btn-primary">💾 Update Data</button>
-            <button type="button" id="generateReportBtn" class="btn btn-success">📊 Generate Report</button>
-            <button type="button" id="quickStatusBtn" class="btn btn-info">⚡ Quick Status</button>
-        </footer>
+        <h1>🚢 Cargo Report App</h1>
+        
+        <div class="status">
+            <h3>✅ App Successfully Deployed!</h3>
+            <p>GitHub Pages is working correctly</p>
+        </div>
+        
+        <button class="btn" onclick="testFunction()">🧪 Test Functionality</button>
+        <button class="btn" onclick="showInfo()">📱 iPhone Instructions</button>
+        
+        <div class="info" id="info" style="display: none;">
+            <h4>📱 Add to iPhone:</h4>
+            <p>1. Open this page in Safari</p>
+            <p>2. Tap the Share button</p>
+            <p>3. Select "Add to Home Screen"</p>
+            <p>4. Tap "Add"</p>
+        </div>
+        
+        <div class="info">
+            <p><strong>Next Steps:</strong></p>
+            <p>✅ GitHub Pages working</p>
+            <p>⏳ Ready for full app code</p>
+            <p>🔗 <span id="currentUrl"></span></p>
+        </div>
     </div>
 
-    <div class="loading" id="loading">
-        <div class="spinner"></div>
-        <p>Processing...</p>
-    </div>
-
-    <script src="app.js"></script>
     <script>
-        // Register service worker
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(registration => console.log('SW registered'))
-                .catch(error => console.log('SW registration failed'));
+        function testFunction() {
+            alert('🎉 JavaScript is working!\n\nApp is ready for full functionality.');
+        }
+        
+        function showInfo() {
+            const info = document.getElementById('info');
+            info.style.display = info.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        // Show current URL
+        document.getElementById('currentUrl').textContent = window.location.href;
+        
+        // Test if this is running on iPhone
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            document.body.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+            document.querySelector('h1').innerHTML = '🚢 Cargo Report App<br><small>📱 iPhone Detected</small>';
         }
     </script>
 </body>
