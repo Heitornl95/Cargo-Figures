@@ -112,3 +112,89 @@
             <h3>✅ GitHub Pages Active!</h3>
             <p>Your PWA is successfully deployed</p>
         </div>
+        
+        <button class="btn" onclick="testApp()">🧪 Test Functionality</button>
+        <button class="btn" onclick="toggleInstructions()">📱 iPhone Setup</button>
+        <button class="btn" onclick="showNextSteps()">🚀 Next Steps</button>
+        
+        <div class="info-box hidden" id="instructions">
+            <h4>📱 Add to iPhone Home Screen:</h4>
+            <ol style="text-align: left; margin-top: 10px;">
+                <li>Open this page in <strong>Safari</strong></li>
+                <li>Tap the <strong>Share button</strong> (square with arrow)</li>
+                <li>Scroll down and tap <strong>"Add to Home Screen"</strong></li>
+                <li>Tap <strong>"Add"</strong> in the top right</li>
+                <li>The app icon will appear on your home screen! 🎉</li>
+            </ol>
+        </div>
+        
+        <div class="info-box hidden" id="nextSteps">
+            <h4>🚀 Ready for Full App:</h4>
+            <ul style="text-align: left; margin-top: 10px;">
+                <li>✅ GitHub Pages working</li>
+                <li>✅ URL accessible</li>
+                <li>✅ Ready for cargo report features</li>
+                <li>⏳ Next: Add Google Sheets integration</li>
+            </ul>
+        </div>
+        
+        <div class="url-display">
+            <strong>Your App URL:</strong><br>
+            <span id="currentUrl"></span>
+        </div>
+        
+        <div style="margin-top: 20px; font-size: 12px; color: #666;">
+            Last updated: <span id="timestamp"></span>
+        </div>
+    </div>
+
+    <script>
+        // Display current URL
+        document.getElementById('currentUrl').textContent = window.location.href;
+        
+        // Display timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        
+        function testApp() {
+            const messages = [
+                '🎉 JavaScript is working perfectly!',
+                '📱 App is responsive and mobile-ready!',
+                '🚢 Ready for cargo management features!',
+                '✅ All systems operational!'
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            alert(randomMessage);
+        }
+        
+        function toggleInstructions() {
+            const instructions = document.getElementById('instructions');
+            instructions.classList.toggle('hidden');
+            
+            // Hide other sections
+            document.getElementById('nextSteps').classList.add('hidden');
+        }
+        
+        function showNextSteps() {
+            const nextSteps = document.getElementById('nextSteps');
+            nextSteps.classList.toggle('hidden');
+            
+            // Hide other sections
+            document.getElementById('instructions').classList.add('hidden');
+        }
+        
+        // Detect if running on iPhone
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            document.body.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+            document.querySelector('.subtitle').innerHTML = '📱 iPhone Detected - Ready to Install!';
+        }
+        
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚢 Cargo Figures App Loaded Successfully!');
+            console.log('📍 URL:', window.location.href);
+            console.log('🔧 Ready for development!');
+        });
+    </script>
+</body>
+</html>
