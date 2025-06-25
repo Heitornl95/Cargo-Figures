@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargo Report App</title>
+    <title>Cargo Figures - Heitornl95</title>
     <style>
         * {
             margin: 0;
@@ -13,110 +13,102 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #333;
         }
         
         .container {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
-            max-width: 400px;
+            max-width: 450px;
             width: 90%;
         }
         
         h1 {
-            color: #007AFF;
-            margin-bottom: 20px;
-            font-size: 28px;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
         }
         
         .status {
-            background: #e8f5e8;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #28a745;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+        
+        .status h3 {
+            margin-bottom: 10px;
         }
         
         .btn {
-            background: #007AFF;
+            background: #1e3c72;
             color: white;
-            padding: 15px 30px;
+            padding: 15px 25px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 16px;
             cursor: pointer;
-            margin: 10px;
+            margin: 8px;
             transition: all 0.3s;
+            min-width: 200px;
         }
         
         .btn:hover {
-            background: #0056b3;
+            background: #2a5298;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        .info {
+        .info-box {
             background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .url-display {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            margin-top: 15px;
+            word-break: break-all;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🚢 Cargo Report App</h1>
+        <div class="success-icon">🚢</div>
+        <h1>Cargo Figures</h1>
+        <div class="subtitle">by Heitornl95</div>
         
         <div class="status">
-            <h3>✅ App Successfully Deployed!</h3>
-            <p>GitHub Pages is working correctly</p>
+            <h3>✅ GitHub Pages Active!</h3>
+            <p>Your PWA is successfully deployed</p>
         </div>
-        
-        <button class="btn" onclick="testFunction()">🧪 Test Functionality</button>
-        <button class="btn" onclick="showInfo()">📱 iPhone Instructions</button>
-        
-        <div class="info" id="info" style="display: none;">
-            <h4>📱 Add to iPhone:</h4>
-            <p>1. Open this page in Safari</p>
-            <p>2. Tap the Share button</p>
-            <p>3. Select "Add to Home Screen"</p>
-            <p>4. Tap "Add"</p>
-        </div>
-        
-        <div class="info">
-            <p><strong>Next Steps:</strong></p>
-            <p>✅ GitHub Pages working</p>
-            <p>⏳ Ready for full app code</p>
-            <p>🔗 <span id="currentUrl"></span></p>
-        </div>
-    </div>
-
-    <script>
-        function testFunction() {
-            alert('🎉 JavaScript is working!\n\nApp is ready for full functionality.');
-        }
-        
-        function showInfo() {
-            const info = document.getElementById('info');
-            info.style.display = info.style.display === 'none' ? 'block' : 'none';
-        }
-        
-        // Show current URL
-        document.getElementById('currentUrl').textContent = window.location.href;
-        
-        // Test if this is running on iPhone
-        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            document.body.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
-            document.querySelector('h1').innerHTML = '🚢 Cargo Report App<br><small>📱 iPhone Detected</small>';
-        }
-    </script>
-</body>
-</html>
