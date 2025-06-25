@@ -1,5 +1,5 @@
 // CONFIGURAÇÃO - SUBSTITUA PELA SUA URL DO GOOGLE APPS SCRIPT
-const GOOGLE_SCRIPT_URL = 'SUA_URL_DO_GOOGLE_APPS_SCRIPT_AQUI';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhhwbD2P--DCfsVAj92nRHSmW5K9cxlJxMbsR-wN5UpMdhoIspdH8ShtYdlP0gE8ilCQ/exec';
 
 class CargoApp {
     constructor() {
